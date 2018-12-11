@@ -8,7 +8,7 @@
     python fba_server.py 3002
     python fba_server.py 3003
 ```
-3. Then in another terminal run the test_client.py program specifying which node you want to send the data to.
+3. Then in another terminal run the fba_client.py program specifying which node you want to send the data to.
 ```
     fba_client.py 3000
 ```
