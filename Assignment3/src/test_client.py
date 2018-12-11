@@ -45,7 +45,11 @@ class MulticastPingClient(DatagramProtocol):
 
 
     def datagramReceived(self, datagram, address):
-        print("Datagram %s received from " % (repr(datagram)))
+        data = repr(datagram)
+        data = data[2:-1]
+        data_arr = data.split("|||")
+        if(data_arr[0] == "commit"):
+            print("Datagram %s received from %s" % (repr(datagram) , data_arr[1]))
 
 nodeName = sys.argv[1]
 #nodeName = 3000

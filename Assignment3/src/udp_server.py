@@ -162,7 +162,7 @@ class Multicast(DatagramProtocol):
         self.quorum_prepared_data[key_data] = temp_dict
         print("\n quorum_prepared_data\n")
         print(self.quorum_prepared_data)
-        print("node_list_in_quorum number of nodes in quorum")
+        #print("node_list_in_quorum number of nodes in quorum")
         print(self.node_list_in_quorum)
         if len(self.quorum_prepared_data[key_data].keys()) == len(self.node_list_in_quorum):
             print("Going into consensus\n")
@@ -197,8 +197,10 @@ class Multicast(DatagramProtocol):
 
 
         if(temp_max >= target):
-            self.transport.write(str.encode("commit|||%s|||%s" % (key_data, value_data)), ("225.0.0.5",channel_nb))
+            self.transport.write(str.encode("commit|||%s|||%s|||%s" % (self.node_name,key_data, value_data)), ("225.0.0.5",channel_nb))
             self.commitData(key_data, value_data)
+        else:
+            print("consensus failed")
 
     def commitData(self, key, value):
         value = int(value)
@@ -208,6 +210,7 @@ class Multicast(DatagramProtocol):
             self.db.set(key, x)
         else:
             self.db.set(key, value)
+        print("Data commited")
         self.db.dump()
         self.quorum_prepared_data={}
         self.quorum_commit_data = {}
