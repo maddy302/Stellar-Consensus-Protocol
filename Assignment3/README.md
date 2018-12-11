@@ -1,3 +1,20 @@
+#Instructions to run the code
+1. Open the terminals for all the nodes
+2. Execute python udp_server.py <port_number>
+    So to run 4 nodes, run 
+    python udp_server.py 3000
+    python udp_server.py 3001
+    python udp_server.py 3002
+    python udp_server.py 3003
+3. Then in another terminal run the test_client.py program specifying which node you want to send the data to.
+    test_client.py 3000
+4. After the consensus ends you will observe .db files generated which will have the total wallet amount of  the user.
+You can observe the node logs, where they communicate to reach to consensus.
+5. In case of any issues, pls mail to madhukar.battepatisrihari@sjsu.edu
+
+
+
+
 # Requirements
 
 You will be implementing a Federated Byzantine Agreement (FBA) prototype in Python3. First, read [this article](https://medium.com/a-stellar-journey/on-worldwide-consensus-359e9eb3e949) and [the Stellar white paper](https://www.stellar.org/papers/stellar-consensus-protocol.pdf) before proceeding the assignment.
