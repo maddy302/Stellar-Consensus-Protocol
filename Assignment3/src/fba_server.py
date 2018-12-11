@@ -60,7 +60,7 @@ class Multicast(DatagramProtocol):
     node_list_in_quorum = set()
     db=""
     def __init__(self, node_name, *quorum):
-        self.db = pickledb.load('assinment'+str(node_name)+'.db', False)
+        self.db = pickledb.load('assignment3_'+str(node_name)+'.db', False)
         self.node_name = node_name
         #self.node_type = node_type
         # for x in quorum:

@@ -1,13 +1,17 @@
 #Instructions to run the code
 1. Open the terminals for all the nodes
-2. Execute python udp_server.py <port_number>
-    So to run 4 nodes, run 
-    python udp_server.py 3000
-    python udp_server.py 3001
-    python udp_server.py 3002
-    python udp_server.py 3003
+2. Execute python fba_server.py <port_number>
+```
+    #So to run 4 nodes, run 
+    python fba_server.py 3000
+    python fba_server.py 3001
+    python fba_server.py 3002
+    python fba_server.py 3003
+```
 3. Then in another terminal run the test_client.py program specifying which node you want to send the data to.
-    test_client.py 3000
+```
+    fba_client.py 3000
+```
 4. After the consensus ends you will observe .db files generated which will have the total wallet amount of  the user.
 You can observe the node logs, where they communicate to reach to consensus.
 5. In case of any issues, pls mail to madhukar.battepatisrihari@sjsu.edu
